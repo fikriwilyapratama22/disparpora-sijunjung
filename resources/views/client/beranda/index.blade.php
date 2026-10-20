@@ -1,0 +1,594 @@
+@extends('client.layouts.app')
+
+@section('content')
+    <!--Carousel Start -->
+    <div class="container-fluid position-relative p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{{ asset('landingpage/assets/img/carousel-1.jpeg') }}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Explore Sijunjung</h5>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Discover the Beauty of Sijunjung</h1>
+                            <a href="{{ url('/lokawisata') }}"
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lihat Destinasi</a>
+                            <a href="{{ url('/message') }}"
+                                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Buku Tamu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('landingpage/assets/img/carousel-2.jpeg') }}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Sports in Sijunjung</h5>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Enhancing Youth and Sports</h1>
+                            <a href="{{ url('/artikel') }}"
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Explore Sports</a>
+                            <a href="{{ url('/message') }}"
+                                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Hubungi Kami</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!--Carousel End -->
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(10, 50, 29, 0.59);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-white border-green p-3"
+                            placeholder="Type search keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+    <!-- Facts Start -->
+    {{-- <div class="container-fluid facts py-5 pt-lg-0">
+        <div class="container py-5 pt-lg-0">
+            <div class="row gx-0">
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-users text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Happy Clients</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px;">
+                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-check text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-primary mb-0">Projects Done</h5>
+                            <h1 class="mb-0" data-toggle="counter-up">12345</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4"
+                        style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-award text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Win Awards</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <!-- Facts Start -->
+
+
+    <div class="container-fluid py-5 wow fadeInUp "id="layananSection" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Layanan Publik Disparpora Sijunjung</h5>
+                <h1 class="mb-0">Layanan Untuk Masyarakat Kabupaten Sijunjung</h1>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                @foreach ($layanans as $layanan)
+                    <div class="col-lg-3 col-md-3">
+                        <a href="{{ url('/layanan/' . $layanan->id) }}" class="text-decoration-none text-dark">
+                            <div class="layanan-card h-100">
+                                <img src="{{ asset('layanan/' . $layanan->gambar) }}" alt="{{ $layanan->layanan }}"
+                                    class="img-fluid w-100" style="height:180px; object-fit:cover; border-radius:4px;">
+
+                                <h5 class="fw-bold">{{ $layanan->layanan }}</h5>
+                                <p class="mb-0">{{ $layanan->deskripsi }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- Kontak & Catatan -->
+<div class="mt-4 text-center">
+    <p class="text-muted" style="font-size: 0.95rem;">
+        <strong>Catatan:</strong> Jika surat Anda belum muncul dalam waktu 2×24 jam,
+        silakan hubungi kami melalui:
+        <br>
+        📞 0812-3456-7890 (WhatsApp) <br>
+        📧 layanan@disparpora-sijunjung.go.id
+    </p>
+</div>
+    
+  {{-- <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+    <h5 class="fw-bold text-primary text-uppercase">Buku Tamu</h5>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="bg-primary rounded-4 p-5 shadow-lg wow zoomIn" data-wow-delay="0.3s" style="width: 100%; max-width: 600px;">
+        <form id="contactForm" action="{{ route('buku-tamu.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label text-white fw-semibold">Nama Anda</label>
+                <input type="text" id="name" name="nama" class="form-control rounded" placeholder="Nama Anda" required>
+                <div class="invalid-feedback">Nama hanya boleh mengandung huruf dan spasi.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="alamat" class="form-label text-white fw-semibold">Alamat</label>
+                <input type="text" id="alamat" name="alamat" class="form-control rounded" placeholder="Alamat Anda" required>
+                <div class="invalid-feedback">Masukkan alamat yang valid.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telp" class="form-label text-white fw-semibold">Nomor HP</label>
+                <input type="text" id="telp" name="no_telfon" class="form-control rounded" placeholder="08xxxxxxxxxx" required>
+                <div class="invalid-feedback">Nomor HP tidak valid.</div>
+            </div>
+            <div class="mb-3">
+                
+    <label for="lokawisata_id" class="form-label text-white fw-semibold">Pilih Lokawisata</label>
+    <select id="lokawisata_id" name="lokawisata_id" class="form-control rounded" required>
+        <option value="">-- Pilih Lokawisata --</option>
+        @foreach ($lokawisata as $item)
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
+        @endforeach
+    </select>
+    <div class="invalid-feedback">Silakan pilih salah satu lokawisata.</div>
+</div>
+
+
+            <div class="mb-3">
+                <label for="pesan" class="form-label text-white fw-semibold">Pesan</label>
+                <textarea id="pesan" name="pesan" class="form-control rounded" rows="4" placeholder="Pesan Anda..." required></textarea>
+                <div class="invalid-feedback">Pesan tidak boleh kosong.</div>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-light fw-bold rounded py-2">Kirim Pesan</button>
+            </div>
+        </form>
+    </div>
+</div> --}}
+
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-4">
+                        {{-- <h5 class="fw-bold text-primary text-uppercase">About Us</h5> --}}
+                        <h1 class="mb-0">Membangun Pariwisata dan Olahraga di Sijunjung</h1>
+                    </div>
+                    <p class="mb-4">Dinas Pariwisata Pemuda dan Olahraga Sijunjung berkomitmen untuk mengembangkan
+                        potensi
+                        pariwisata dan olahraga melalui berbagai program dan kegiatan yang inovatif dan berkelanjutan. Kami
+                        mengundang Anda untuk menjelajahi keindahan alam dan budaya serta mendukung peningkatan prestasi
+                        olahraga di Sijunjung.</p>
+                    <div class="row g-0 mb-3">
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Wisata Alam</h5>
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Budaya dan Adat Istiadat</h5>
+                        </div>
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Fasilitas Olahraga</h5>
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Kegiatan Pemuda</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
+                            src="{{ asset('landingpage/assets/img/kepala-dinas.jpg') }}" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Berita Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Berita Terbaru</h5>
+                <h1 class="mb-0">Baca Artikel dan Berita Terbaru Kami</h1>
+            </div>
+            <div class="row g-5" id="berita-container">
+                <!-- Konten berita akan dimuat melalui AJAX di sini -->
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ route('client.berita.index') }}" class="btn btn-primary">Lihat Semua <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Berita End -->
+
+
+    <!-- lokawisata Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Lokawisata</h5>
+                <h1 class="mb-0">Spot Unggulan Wisata</h1>
+            </div>
+            <div id="wisata-container">
+                {{-- <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s"> --}}
+                {{-- dengan ajax --}}
+            </div>
+        </div>
+    </div>
+    <!-- lokawisata End -->
+
+    <!-- Peta Wisata Sijunjung Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Peta Wisata</h5>
+                <h1 class="mb-0">Temukan Lokasi Wisata di Sijunjung</h1>
+            </div>
+            <div class="text-center">
+                <img class="img-fluid rounded" src="{{ asset('uploads/peta-wisata-sijunjung.png') }}"
+                    alt="Peta Wisata Sijunjung">
+            </div>
+        </div>
+    </div>
+    <!-- Peta Wisata Sijunjung End -->
+
+
+    <!-- Agenda Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Agenda</h5>
+                <h1 class="mb-0">Mari ikuti Agenda ataupun Event Terbaru Kami</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div id="agenda-list">
+                        <!-- Data agenda akan dimuat di sini melalui AJAX -->
+                    </div>
+
+                    <!-- Tombol "Lihat Semua Agenda" -->
+                    <div class="text-center mt-4">
+                        <a href="{{ route('client.agenda.index') }}" class="btn btn-primary">Lihat Semua <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Agenda End -->
+
+
+    {{-- <!-- Service Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Layanan Kami</h5>
+                <h1 class="mb-0">Solusi Pariwisata dan Olahraga untuk Masyarakat</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-map-marked-alt text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Pengembangan Destinasi Wisata</h4>
+                        <p class="m-0">Kami menyediakan informasi lengkap tentang destinasi wisata yang ada di Kabupaten
+                            Sijunjung.</p>
+                        <a class="btn btn-lg btn-primary rounded" href="{{ url('/lokawisata') }}">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-running text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Fasilitas Olahraga</h4>
+                        <p class="m-0">Fasilitas olahraga untuk mendukung kegiatan olahraga di Kabupaten Sijunjung.</p>
+                        <a class="btn btn-lg btn-primary rounded" href="{{ route('client.berita.index', ['category_id' => 2]) }}">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
+                    <div
+                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-users text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Kegiatan Pemuda</h4>
+                        <p class="m-0">Program dan kegiatan untuk mendukung pengembangan pemuda di Kabupaten Sijunjung.
+                        </p>
+                        <a class="btn btn-lg btn-primary rounded" href="{{ route('client.berita.index', ['category_id' => 2]) }}">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End --> --}}
+
+    <!-- AJAX Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadBeritaTerbaru() {
+                $.ajax({
+                    url: "{{ url('/api/content') }}", // Endpoint API untuk berita
+                    method: "GET",
+                    data: {
+                        type: 'berita',
+                        per_page: 6
+                    },
+                    success: function(response) {
+                        console.log(response); // Log respons API
+                        if (response.success) {
+                            let beritaContainer = $('#berita-container');
+                            let beritaHtml = '';
+
+                            $.each(response.data, function(index, berita) {
+                                const formattedDate = new Date(berita.created_at)
+                                    .toLocaleDateString('id-ID', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    });
+
+                                beritaHtml += `
+                                    <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                                        <div class="blog-item bg-light rounded overflow-hidden">
+                                            <div class="blog-img position-relative overflow-hidden">
+                                                <img class="img-fluid" src="${berita.image}" alt="${berita.title}">
+                                                <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="/berita/${berita.slug}">
+                                                    ${berita.category ? berita.category.name : 'Kategori'}
+                                                </a>
+                                            </div>
+                                            <div class="p-4">
+                                                <div class="d-flex mb-3">
+                                                    <small class="me-3"><i class="far fa-user text-primary me-2"></i>${berita.created_by ?? 'Unknown Author'}</small>
+                                                    <small><i class="far fa-calendar-alt text-primary me-2"></i>${formattedDate}</small>
+                                                </div>
+                                                <h4 class="mb-3">${berita.title}</h4>
+                                                <p>${berita.description_short}</p>
+                                                <a class="text-uppercase" href="/berita/${berita.slug}">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                            });
+
+                            beritaContainer.html(beritaHtml);
+                        } else {
+                            $('#berita-container').html(
+                                '<p class="text-center">Tidak ada berita yang ditemukan.</p>');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText); // Log error response
+                        $('#berita-container').html(
+                            '<p class="text-center">Gagal memuat berita. Silakan coba lagi nanti.</p>'
+                        );
+                    }
+                });
+            }
+
+            loadBeritaTerbaru();
+
+            // Fungsi untuk memuat data Lokawisata
+            function loadLokawisata() {
+                $.ajax({
+                    url: "{{ url('/api/lokawisata') }}",
+                    method: "GET",
+                    success: function(response) {
+                        if (response.success) {
+                            let lokawisataHtml =
+                                '<div class="owl-carousel wisata-carousel wow fadeInUp" data-wow-delay="0.4s">';
+                            $.each(response.data, function(index, lokawisata) {
+                                let trimmedDescription = lokawisata.description.length > 100 ?
+                                    lokawisata.description.substring(0, 100) + '...' :
+                                    lokawisata.description;
+                                lokawisataHtml += `
+                                <div class="testimonial-item bg-light my-4">
+                                    <img class="img-fluid rounded" src="${lokawisata.image}" alt="${lokawisata.name}" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="p-3">
+                                        <h4 class="text-primary mb-1" onclick="window.location.href='/lokawisata/${lokawisata.slug}'" style="cursor: pointer;">${lokawisata.name}</h4>
+                                        <small class="text-uppercase">${lokawisata.operating_hours}</small>
+                                        <p>${trimmedDescription}</p>
+                                    </div>
+                                </div>`;
+                            });
+                            lokawisataHtml += '</div>';
+                            $('#wisata-container').html(lokawisataHtml);
+
+                            $('.wisata-carousel').owlCarousel({
+                                loop: true,
+                                margin: 30,
+                                nav: true, // Aktifkan navigasi
+                                navText: false, // Teks kustom untuk navigasi
+                                dots: true,
+                                autoplay: true,
+                                responsive: {
+                                    0: {
+                                        items: 1
+                                    },
+                                    576: {
+                                        items: 2
+                                    },
+                                    992: {
+                                        items: 3
+                                    }
+                                }
+                            });
+                        } else {
+                            $('#wisata-container').html(
+                                '<p class="text-center">Tidak ada data lokawisata yang ditemukan.</p>'
+                            );
+                        }
+                    },
+                    error: function() {
+                        $('#wisata-container').html(
+                            '<p class="text-center">Gagal memuat data lokawisata.</p>');
+                    }
+                });
+            }
+
+            // Memanggil fungsi loadLokawisata saat dokumen siap
+            loadLokawisata();
+
+
+            // Fungsi untuk memuat 3 agenda terbaru
+            function loadAgenda() {
+                $.ajax({
+                    url: "{{ url('/api/agenda') }}", // URL endpoint API agenda
+                    method: "GET",
+                    data: {
+                        per_page: 2, // Ambil hanya 3 agenda terbaru
+                        sort: 'event_date:desc' // Sorting berdasarkan event_date desc
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            let agendaList = '';
+                            response.data.forEach(agenda => {
+                                agendaList += `
+                                    <div class="timeline-item wow slideInUp" data-wow-delay="0.1s">
+                                        <div class="timeline-date">
+                                            <span class="day">${new Date(agenda.event_date).getDate()}</span>
+                                            <span class="month">${new Date(agenda.event_date).toLocaleString('id-ID', { month: 'short' }).toUpperCase()}</span>
+                                        </div>
+                                        <div class="timeline-content bg-light rounded p-4">
+                                            <div class="d-flex justify-content-between">
+                                                <!-- Content -->
+                                                <div class="flex-grow-1">
+                                                    <span class="badge bg-danger text-white mb-2">Agenda</span>
+                                                    <h4 class="mb-3">${agenda.title}</h4>
+                                                    <p class="mb-0 text-muted">${agenda.content.substring(0, 150)}...</p>
+                                                </div>
+
+                                                <!-- "Lihat" Button -->
+                                                <div class="ms-auto d-flex align-items-center">
+                                                    <span class="vertical-divider mx-3"></span>
+                                                    <a class="text-green fw-bold lihat-link" data-file="${agenda.file_path}">
+                                                        Lihat
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                            $('#agenda-list').html(agendaList);
+                        } else {
+                            $('#agenda-list').html('<p>Tidak ada agenda.</p>');
+                        }
+                    },
+                    error: function() {
+                        $('#agenda-list').html('<p>Gagal memuat data agenda.</p>');
+                    }
+                });
+            }
+
+            // Panggil fungsi untuk memuat agenda terbaru saat halaman siap
+            loadAgenda();
+
+            // Event listener untuk unduh file saat tombol "Lihat" diklik
+            $(document).on('click', '.lihat-link', function(e) {
+                e.preventDefault();
+                const filePath = $(this).data('file');
+                if (filePath) {
+                    const url = '{{ url('/') }}' + '/' + (filePath);
+                    window.open(url, '_blank');
+                } else {
+                    alert('File tidak tersedia.');
+                }
+            });
+        });
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session('success') }}',
+        confirmButtonColor: '#1AA053',
+    });
+</script>
+@endif
+
+
+
+    <!-- Vendor Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 mb-5">
+            <div class="bg-white">
+                <div class="owl-carousel vendor-carousel">
+                    <img src="{{ asset('landingpage/assets/img/mitra-1.png') }}" alt="">
+                    <img src="{{ asset('landingpage/assets/img/mitra-2.png') }}" alt="">
+                    <img src="{{ asset('landingpage/assets/img/mitra-3.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor End -->
+@endsection
